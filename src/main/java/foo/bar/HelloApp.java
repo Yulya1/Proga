@@ -21,17 +21,22 @@ public class HelloApp {
         // todo создать вторую xml-конфигурацию, в которой конферансье вызывает вашего нового исполнителя
         // todo запустить приложение с новой конфигурацией
 
-        //ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        /*
+        переписать класс конферансье так, чтобы он мог вызывать несколько исполнителей за раз
+        исполнителей хранить в коллекции
+         */
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
         //2)
-       // Performer performer = (Performer) context.getBean("vasya");
-       // performer.perform();
+//        Performer performer = (Performer) context.getBean("vasya");
+//        performer.perform();
 
         //3)
-        //Conf confer = (Conf) context.getBean("conf");
-        //confer.makePerform();
+        Conf confer = (Conf) context.getBean("conf");
+        confer.perform();
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("forTrainer.xml");
-        Trainer trainer = (Trainer) context.getBean("trainer");
-        trainer.perform();
+//        ApplicationContext context = new ClassPathXmlApplicationContext("forTrainer.xml");
+//        Trainer trainer = (Trainer) context.getBean("trainer");
+//        trainer.perform();
     }
 }

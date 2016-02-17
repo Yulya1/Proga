@@ -16,7 +16,15 @@
     </bean>
 
     <bean id = "conf" class ="foo.bar.Conf">
-        <constructor-arg name="performer" ref="vasya" />
+       <property name="perf">
+           <list>
+               <ref bean="vasya"/>
+               <bean class ="foo.bar.Juggler">
+                   <constructor-arg name="countOfBeanbags" value="15" />
+                   <constructor-arg name="poem" ref="poem" />
+               </bean>
+           </list>
+       </property>
     </bean>
 
 </beans>
